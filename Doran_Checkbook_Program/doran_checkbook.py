@@ -5,9 +5,9 @@ locale.setlocale( locale.LC_ALL, '' )
 
 
 def current_balance():
-    # Pulls current balance from my .txt file.
+    # Pulls current balance from .txt.
     
-    f = open("/Users/padraicdoran/codeup-data-science/python-exercises/Doran_Checkbook_Program/balance.txt","r")
+    f = open("balance.txt","r")
     contents = f.readlines()
     amt = 0.00
     for x in contents:
@@ -23,11 +23,11 @@ def withdraw(w):
     Withdraws amount of money, updates current balance
     '''
     w_money = abs((float(w)))
-    f = open ("/Users/padraicdoran/codeup-data-science/python-exercises/Doran_Checkbook_Program/balance.txt", "a")
+    f = open ("balance.txt", "a")
     f.write('\n')
     ledger = str((w_money) *-1)
     f.write(ledger)
-    f = open("/Users/padraicdoran/codeup-data-science/python-exercises/Doran_Checkbook_Program/balance.txt","r")
+    f = open("balance.txt","r")
     contents = f.readlines()
     amt = 0
     for x in contents:
@@ -46,11 +46,11 @@ def deposit(m):
     displays updated current balance.
     '''
     deposit_m = abs((float(m)))
-    f = open ("/Users/padraicdoran/codeup-data-science/python-exercises/Doran_Checkbook_Program/balance.txt", "a")
+    f = open ("balance.txt", "a")
     f.write('\n')
     ledger = str(deposit_m)
     f.write(ledger)
-    f = open("/Users/padraicdoran/codeup-data-science/python-exercises/Doran_Checkbook_Program/balance.txt","r")
+    f = open("balance.txt","r")
     contents = f.readlines()
     amt = 0
     for x in contents:

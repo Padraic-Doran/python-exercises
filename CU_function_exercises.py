@@ -1,5 +1,5 @@
 def is_two(x):
-    if x = 2 or str(2):
+    if x == 2 or str(2):
         return True
     else:
         return False
@@ -83,7 +83,7 @@ print(discount_amount(67.42, 13))
 #
 
 def handle_commas(x):
-   return x = float(x.replace(',', ''))
+   return float(x.replace(',', ''))
     
 
 print(handle_commas('1,234,567.95'))

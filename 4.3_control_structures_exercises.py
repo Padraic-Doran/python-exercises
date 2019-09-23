@@ -176,5 +176,5 @@ genre_filter=input("Please enter a genre: ")
 for book in book_list:
     if book['genre'] == genre_filter:
         print('The following are entries in your desired genre: ')
-        print("The book title is: "+book['title'])
+        print("The book title is: "+ book['title'])
         print("The book author is: "+book['author'])

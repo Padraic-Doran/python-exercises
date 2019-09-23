@@ -1,90 +1,103 @@
-def is_two(x):
-    if x = 2 or str(2):
-        return True
-    else:
-        return False
+import random
+
+
+# # Conditional Basics
+# #
+# # prompt the user for a day of the week, print out whether the day is Monday or not
+# #
+# # prompt the user for a day of the week, print out whether the day is a weekday or a weekend
+# #
+# # create variables and make up values for
+# #
+# # the number of hours worked in one week
+# # the hourly rate
+# # how much the week's paycheck will be
+# # write the python code that calculates the weekly paycheck.
+# # You get paid time and a half if you work more than 40 hours
+#
 
 # Define a function named is_two. It should accept one input
 # and return True if the passed input is either the number or the string 2, False otherwise.
 
-def is_two(x):
-    if x == 2 or x == str(2):
-        return True
-    else:
-        return False
-
-print(is_two(3))
+# def is_two(x):
+#     if x == 2 or x == str(2):
+#         return True
+#     else:
+#         return False
+#
+# print(is_two(3))
 #
 # # Define a function named is_vowel. It should return True if the passed string is a vowel, False otherwise.
-
-def is_vowel(x):
-    x = str(x)[:0].lower()
-    if x in "aeiou":
-        return True
-    else:
-        return False
-
-print(is_vowel('ab'))
-
+#
+# def is_vowel(x):
+#     x = str(x)[:0].lower()
+#     if x in "aeiou":
+#         return True
+#     else:
+#         return False
+#
+# print(is_vowel('ab'))
+#
 # # Define a function named is_consonant.
 # # It should return True if the passed string is a consonant, False otherwise.
 # # Use your is_vowel function to accomplish this.
 #
 #
-def is_consonant(x):
-    if str(x)[0:].strip().lower() not in "aeiou":
-        return True
-    else:
-        return False
-
-print(is_consonant('ba'))
-
+# def is_consonant(x):
+#     if str(x)[0:].strip().lower() not in "aeiou":
+#         return True
+#     else:
+#         return False
+#
+# print(is_consonant('ba'))
+#
 # # Define a function that accepts a string that is a word.
 # # The function should capitalize the first letter of the word
 # # if the word starts with a consonant.
 #
 #
-def cap_a_word(x):
-    x = str(x).lower()
-    if x[0] not in "aeiou":
-        return x.capitalize()
-    else:
-        return "Does not start with a consonant"
-
-
-print(cap_a_word("awords"))
+# def cap_a_word(x):
+#     x = str(x).lower()
+#     if x[0] not in "aeiou":
+#         return x.capitalize()
+#     else:
+#         return "Does not start with a consonant"
+#
+#
+# print(cap_a_word("awords"))
 #
 # # Define a function named calculate_tip.
 # # It should accept a tip percentage (a number between 0 and 1) and the bill total, and return the amount to tip.
 #
 #
-def calculate_tip(bill_total, tip_percentage):
-    tip_percentage = tip_percentage/100
-    tip_amount = bill_total * tip_percentage
-    return "The tip amount is: " + '$' + str(round(tip_amount, 2))
-
-
+# def calculate_tip(bill_total, tip_percentage):
+#     tip_percentage = tip_percentage/100
+#     tip_amount = bill_total * tip_percentage
+#     return "The tip amount is: " + '$' + str(round(tip_amount, 2))
+#
+#
 # print(calculate_tip(34.95, 20))
 #
 # # Define a function named apply_discount. It should accept a original price,
 # # and a discount percentage, and return the price after the discount is applied.
 #
-def discount_amount(initial_total, discount_percentage):
-    discount_percentage = discount_percentage/100
-    discount_total = initial_total * discount_percentage
-    total_bill = initial_total - discount_total
-    return "The price after discount is: " + '$' + str(round(total_bill, 2))
-
-print(discount_amount(67.42, 13))
-
+# def discount_amount(initial_total, discount_percentage):
+#     discount_percentage = discount_percentage/100
+#     discount_total = initial_total * discount_percentage
+#     total_bill = initial_total - discount_total
+#     return "The price after discount is: " + '$' + str(round(total_bill, 2))
+#
+# print(discount_amount(67.42, 13))
+#
 # # Define a function named handle_commas.
 # # It should accept a string that is a number that contains commas in it as input,
 # # and return a number as output.
 #
 
 def handle_commas(x):
-   return x = float(x.replace(',', ''))
-    
+    x = x.replace(',', '')
+    return x
+
 
 print(handle_commas('1,234,567.95'))
 
@@ -155,20 +168,19 @@ print(remove_vowels("David Espinola looks like an $%&^("))
 # First Name will become first_name
 # % Completed will become completed
 
-def normalize_name(x):
-    new_word = x
-    if x.isdigit() == False and x.isidentifier() == False and x.isspace() != False:
-        new_word = x.replace(x, "")
-
-    new_word = new_word.lower().replace(" ", "_")
-
-    return new_word
+def normalize_name(input):
+    for symbol in input:
+        if symbol == "_":
+            input = input.replace(symbol, " ")
+    for symbol in input:
+        if symbol.isalpha() == False and symbol.isdigit() == False and symbol != " ":
+            input = input.replace(symbol, "")
+    input = input.strip().lower().replace(" ", "_")
+    return input
 
 
 print(normalize_name(' Ho$w@dy Dud@e&y'))
 
-# Write a function named cumsum that accepts a list of numbers and 
-# returns a list that is the cumulative sum of the numbers in the list.
 
 def cum_sum(lst):
     total = 0
@@ -179,7 +191,6 @@ def cum_sum(lst):
     return new_lst
 
 print(cum_sum([1,2,3,4]))
-
 
 def convert24(str1):
     # Checking if last two elements of time
@@ -198,5 +209,65 @@ def convert24(str1):
     # add 12 to hours and remove PM
         return str(int(str1[:2]) + 12) + str1[2:8]
 
-print(convert24("08:05:45 PM"))
+print(convert24("12:05:45 PM"))
+
+def col_index(column_name):
+    """
+        Takes a column name that is a string of letters and returns the corresponding column number
+    """
+    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    column_name = column_name.upper()
+    column = 0
+    iteration = 0
+    for letter in column_name:
+        iteration += 1
+        value = alphabet.find(letter) + 1
+        exponent = len(column_name) - iteration
+        column += value * (len(alphabet) ** exponent)
+    return column
+
+
+print(col_index('PadraicDoran'))
+
+
+def dice_roll(dice):
+    dice = dice.split('d')
+    num_of_rolls = int(dice[0])
+    dice_sides = int(dice[1])
+    new_lst = []
+    for i in range(num_of_rolls):
+        x = random.randint(1, dice_sides)
+        new_lst.append(x)
+    return new_lst
+
+
+print(dice_roll('4d6'))
+
+
+def find_mean(a, n):
+    sum = 0
+    for i in range(0, n):
+        sum += a[i]
+    return float(sum/n)
+
+# Function for calculating median
+
+def find_median(a, n):
+
+        # First we sort the array
+    sorted(a)
+
+        # check for even case
+    if n % 2 != 0:
+        return float(a[n/2])
+
+    return float((a[int((n-1)/2)] +
+                      a[int(n/2)])/2.0)
+
+a = [ 1, 3, 4, 2, 7, 5, 8, 6 ]
+n = len(a)
+print("Mean =", find_mean(a, n))
+print("Median =", find_median(a, n))
+
+
 
