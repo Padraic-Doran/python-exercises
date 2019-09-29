@@ -7,6 +7,7 @@
 from pydataset import data
 import pandas as pd
 import numpy as np
+import matplotlib as plt
 
 # Load the mpg dataset. Read the documentation for it, and use the data to answer these questions:
 mpg = data('mpg')
@@ -168,7 +169,15 @@ employees_and_titles
 
 employees_and_titles.sort_values('hire_date').groupby('title').tail(1)
 
+titles = pd.read_sql(query,url)
 
+title_counts = titles.groupby('title')['emp_no'].count()
+values = title_counts.values
+title_list = title_counts.index
+plt.bar(title_list, values)
+plt.xticks(rotation=30)
+plt.title("Number of Employees with Each Title")
+plt.show()
 
 # In[142]:
 
@@ -182,6 +191,17 @@ dept_and_dept_emp
 t_dept_dept_emp = pd.merge(titles, dept_and_dept_emp)
 t_dept_name = t_dept_dept_emp[['title', 'dept_name']]
 titles_dept_name.groupby('dept_name').count()
+
+joined = employees.join(titles.set_index('emp_no'),on='emp_no')
+mask_current = joined['to_date'].apply(lambda x: '9999' not in str(x))
+changed = joined[mask_current]
+changed["diff"] = changed["to_date"] - changed["from_date"]
+plt.hist(changed['diff'].apply(lambda x: x.days/365),bins=6)
+plt.xlabel('Years')
+plt.ylabel('# of Employees')
+plt.title('Frequency of Job Changes')
+plt.show()
+
 
 
 # In[103]:
